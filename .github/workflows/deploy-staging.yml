@@ -1,4 +1,4 @@
-name: Stage the app
+name: Deploy to staging
 
 on:
   pull_request:
@@ -87,7 +87,7 @@ jobs:
       - name: Deploy web app container
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{env.AZURE_WEBAPP_NAME}}
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           images: ${{env.IMAGE_REGISTRY_URL}}/${{ github.repository }}/${{env.DOCKER_IMAGE_NAME}}:${{ github.sha }}
 
       - name: Azure logout via Azure CLI
