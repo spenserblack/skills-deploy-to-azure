@@ -47,7 +47,7 @@ jobs:
   destroy-azure-resources:
     runs-on: ubuntu-latest
 
-    if: contains(github.event.pull_request.labels.*.name 'destroy environment')
+    if: contains(github.event.pull_request.labels.*.name, 'destroy environment')
 
     steps:
       - name: Checkout repository
